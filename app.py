@@ -110,34 +110,37 @@ label {
     font-size: 14px !important;
 }
 
+/* 👇 UPGRADED GENERATE BUTTON */
 .stFormSubmitButton > button {
     width: 100%;
-    min-height: 52px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+    min-height: 55px;
+    background: linear-gradient(135deg, #2563eb, #1e40af) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 12px !important;
-    font-size: 16px !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
     transition: all 0.3s ease !important;
 }
 
 .stFormSubmitButton > button:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
 }
 
+/* 👇 UPGRADED WHATSAPP BUTTON */
 .stLinkButton > a {
     width: 100% !important;
-    min-height: 50px !important;
+    min-height: 55px !important;
     background: linear-gradient(135deg, #16a34a, #15803d) !important;
     color: white !important;
     border: none !important;
     border-radius: 12px !important;
     font-weight: 700 !important;
-    font-size: 15px !important;
-    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.22);
+    font-size: 16px !important;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
     transition: all 0.3s ease !important;
     display: flex !important;
     align-items: center !important;
@@ -145,8 +148,8 @@ label {
 }
 
 .stLinkButton > a:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.32);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.35);
 }
 
 .stDownloadButton > button {
@@ -457,17 +460,21 @@ with sample_column:
             "as a polished PDF — ready to send to employers."
         )
 
+        # 👇 UPGRADED PRICE BOX
         st.markdown(
             """
             <div style="
-                background: linear-gradient(135deg, #eff6ff, #dbeafe);
-                padding: 14px;
-                border-radius: 10px;
+                background: #eff6ff;
+                border: 2px solid #bfdbfe;
+                padding: 20px;
+                border-radius: 12px;
                 text-align: center;
-                margin: 12px 0;
+                margin: 15px 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             ">
-                <span style="font-size: 24px; font-weight: 800; color:#1e40af;">Rs. 300</span>
-                <span style="color:#1e40af; font-size: 14px;"> / CV</span>
+                <div style="font-size: 14px; color: #64748b; font-weight: 600; margin-bottom: 5px;">Professional PDF Design</div>
+                <span style="font-size: 32px; font-weight: 800; color: #1e40af;">Rs. 300</span>
+                <div style="font-size: 14px; color: #64748b; font-weight: 600; margin-top: 5px;">per CV</div>
             </div>
             """,
             unsafe_allow_html=True,
