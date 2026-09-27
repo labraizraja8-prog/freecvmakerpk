@@ -14,7 +14,11 @@ with st.sidebar:
     st.image(SAMPLE_CV_URL, caption="Sample Professional CV", use_container_width=True)
 
     st.markdown("---")
-    st.success("💼 To get your CV made:\n📞 0310-9018979")
+    st.write("💼 **To get your CV made:**")
+    
+    # 👇 Clickable WhatsApp Button (Yahan click karne pe WhatsApp khulega)
+    st.link_button("📞 WhatsApp: 0310-9018979", "https://wa.me/923109018979")
+    
     st.write("💰 Price: Rs. 300 per CV")
     st.markdown("---")
 
@@ -61,4 +65,4 @@ if st.button("Mera CV Banao ✨"):
         st.text_area("Yahan se Copy Karo", cv, height=400)
         st.download_button("📥 Download Karo", cv, file_name=f"{name}_CV.txt")
         
-        st.warning(f"⚠️ Professional editing chahiye? WhatsApp: 0310-9018979")
+        st.warning(f"⚠️ Professional editing chahiye? Click the WhatsApp button in the sidebar!")
