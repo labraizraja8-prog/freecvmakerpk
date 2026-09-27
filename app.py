@@ -3,6 +3,71 @@ from groq import Groq
 
 st.set_page_config(page_title="Free CV Maker Pakistan", page_icon="📄", layout="wide")
 
+# 👇 Professional Dark Theme CSS
+st.markdown("""
+<style>
+    /* Main Background */
+    .stApp {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        font-family: 'Inter', sans-serif;
+    }
+    /* Headings */
+    h1, h2, h3 {
+        color: #ffffff;
+        font-weight: 700;
+    }
+    /* Input Fields */
+    .stTextInput>div>div>input {
+        background-color: #1e293b;
+        color: #ffffff;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .stTextInput>div>div>input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+    /* Buttons */
+    .stButton>button, .stFormSubmitButton>button {
+        background-color: #2563eb;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        padding: 10px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .stButton>button:hover, .stFormSubmitButton>button:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #020617;
+        border-right: 1px solid #1e293b;
+    }
+    /* Links */
+    a {
+        color: #60a5fa !important;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    /* Alert Boxes */
+    .stAlert {
+        border-radius: 8px;
+        background-color: #1e293b;
+        color: #e2e8f0;
+        border: 1px solid #334155;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # URLs
 LOGO_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmakerpk/main/logo.jpg"
 SAMPLE_CV_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmakerpk/main/cv.jpeg"
