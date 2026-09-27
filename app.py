@@ -110,7 +110,7 @@ label {
     font-size: 14px !important;
 }
 
-/* 👇 UPGRADED GENERATE BUTTON */
+/* Generate Button */
 .stFormSubmitButton > button {
     width: 100%;
     min-height: 55px;
@@ -130,7 +130,7 @@ label {
     box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
 }
 
-/* 👇 UPGRADED WHATSAPP BUTTON */
+/* WhatsApp Button */
 .stLinkButton > a {
     width: 100% !important;
     min-height: 55px !important;
@@ -460,7 +460,6 @@ with sample_column:
             "as a polished PDF — ready to send to employers."
         )
 
-        # 👇 UPGRADED PRICE BOX
         st.markdown(
             """
             <div style="
