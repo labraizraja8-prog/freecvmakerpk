@@ -19,7 +19,7 @@ if st.button("Mera CV Banao ✨"):
         with st.spinner("AI CV bana raha hai..."):
             prompt = f"Ek professional CV banao. Name: {name}, Education: {edu}, Experience: {exp}, Skills: {skills}. Achhi English me objective bhi likho."
             response = client.chat.completions.create(
-                        model="llama-3.1-8b-instant",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "user", "content": prompt}]
             )
             cv = response.choices[0].message.content
