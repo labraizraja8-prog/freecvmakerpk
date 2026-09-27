@@ -6,18 +6,18 @@ st.title("📄 Free CV Maker - AI Wala")
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
-name = st.text_input("1. Pura Naam")
+# Yahan labels English mein kar diye gaye hain
+name = st.text_input("1. Full Name")
 phone = st.text_input("2. WhatsApp Number")
-edu = st.text_input("3. Taleem")
-exp = st.text_input("4. Tajurba")
-skills = st.text_input("5. Hunar")
+edu = st.text_input("3. Education")
+exp = st.text_input("4. Experience")
+skills = st.text_input("5. Skills")
 
 if st.button("Mera CV Banao ✨"):
     if name == "":
-        st.error("Naam likho")
+        st.error("Please enter your name")
     else:
-        with st.spinner("AI CV bana raha hai..."):
-            # Yahan prompt change kiya gaya hai (Strictly English)
+        with st.spinner("AI is generating your CV..."):
             prompt = f"""
             You are an expert CV writer. Create a highly professional, ATS-friendly CV in ENGLISH ONLY.
             Do not use Hindi, Urdu, or any other language. Do not write any placeholder text.
