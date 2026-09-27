@@ -4,24 +4,23 @@ from groq import Groq
 st.set_page_config(page_title="Free CV Maker Pakistan", page_icon="📄")
 st.title("📄 Free CV Maker - AI Wala")
 
-# 👇 Aapki CV Image Ka Direct Link Yahan Adjust Kar Diya Gaya Hai
+# CV Image Ka Direct Link
 SAMPLE_CV_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmakerpk/main/cv.jpeg"
 
 # Sidebar mein Sample CV aur Contact Details
 with st.sidebar:
     st.header("📌 Sample CV")
-    st.write("Yeh ek professional CV ka sample hai:")
+    st.write("Here is a sample professional CV:")
     st.image(SAMPLE_CV_URL, caption="Sample Professional CV", use_container_width=True)
-    
+
     st.markdown("---")
-    st.success("💼 Apna CV banwane ke liye:\n📞 0310-9018979")
-    st.write("💰 Price: Rs. 500 per CV")
+    st.success("💼 To get your CV made:\n📞 0310-9018979")
+    st.write("💰 Price: Rs. 300 per CV")
     st.markdown("---")
-    st.write("👉 *AI se free CV banayein, ya professional editing ke liye rabta karein.*")
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
-# Main Form (English Labels)
+# Main Form
 name = st.text_input("1. Full Name")
 phone = st.text_input("2. WhatsApp Number")
 edu = st.text_input("3. Education")
