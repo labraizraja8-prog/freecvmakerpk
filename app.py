@@ -31,7 +31,7 @@ edu = st.text_input("3. Education")
 exp = st.text_input("4. Experience")
 skills = st.text_input("5. Skills")
 
-if st.button("Mera CV Banao ✨"):
+if st.button("CREAT CV✨"):
     if name == "":
         st.error("Please enter your name")
     else:
