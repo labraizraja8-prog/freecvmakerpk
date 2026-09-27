@@ -22,16 +22,21 @@ SAMPLE_CV_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmaker
 WHATSAPP_URL = "https://wa.me/923109018979"
 
 # =========================================================
-# BOLD NEW CSS
+# BOLD NEW CSS (FIXED VISIBILITY)
 # =========================================================
 
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-.stApp {
-    background: #f0f4f8;
+/* Force global font and text color */
+html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
+    color: #1e293b !important; /* Dark text for readability */
+}
+
+.stApp {
+    background-color: #f8fafc !important;
 }
 
 .block-container {
@@ -48,7 +53,7 @@ st.markdown("""
     padding: 40px 30px;
     border-radius: 0 0 30px 30px;
     text-align: center;
-    color: white;
+    color: white !important;
     margin-bottom: 30px;
     box-shadow: 0 10px 40px rgba(30, 58, 138, 0.3);
 }
@@ -75,7 +80,7 @@ st.markdown("""
     padding: 15px;
     border-radius: 12px;
     text-align: center;
-    color: #1e3a8a;
+    color: #1e3a8a !important;
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 25px;
@@ -90,30 +95,32 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
     border-radius: 16px !important;
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06) !important;
     transition: all 0.3s ease !important;
+    padding: 15px !important;
 }
 div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* ============ INPUTS ============ */
+/* ============ INPUTS (FIXED VISIBILITY) ============ */
 div[data-baseweb="input"] > div,
 div[data-baseweb="textarea"] > div {
-    background: #f8fafc !important;
-    border: 1.5px solid #e2e8f0 !important;
+    background-color: #ffffff !important;
+    border: 1.5px solid #cbd5e1 !important;
     border-radius: 10px !important;
 }
 div[data-baseweb="input"] > div:focus-within,
 div[data-baseweb="textarea"] > div:focus-within {
     border-color: #2563eb !important;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
-    background: #ffffff !important;
+    background-color: #ffffff !important;
 }
 div[data-baseweb="input"] input,
 div[data-baseweb="textarea"] textarea {
-    color: #0f172a !important;
+    color: #0f172a !important; /* DARK TEXT FOR INPUTS */
+    font-weight: 500 !important;
 }
 label {
-    color: #334155 !important;
+    color: #1e293b !important;
     font-weight: 600 !important;
 }
 
@@ -153,10 +160,12 @@ label {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    text-decoration: none !important;
 }
 .stLinkButton > a:hover {
     transform: translateY(-3px) scale(1.01) !important;
     box-shadow: 0 15px 35px rgba(22, 163, 74, 0.45) !important;
+    color: white !important;
 }
 
 /* ============ DOWNLOAD BUTTON ============ */
@@ -174,10 +183,24 @@ label {
     color: white !important;
 }
 
-.stTextArea textarea {
-    font-family: 'Courier New', monospace !important;
-    font-size: 13px !important;
-    line-height: 1.6 !important;
+/* ============ HOW IT WORKS CARDS ============ */
+.how-it-works-card {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    height: 100%;
+}
+.how-it-works-card h4 {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+    margin-bottom: 5px !important;
+}
+.how-it-works-card p {
+    color: #64748b !important;
+    font-size: 14px !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -246,7 +269,7 @@ except Exception:
 # MAIN AREA
 # =========================================================
 
-form_column, sample_column = st.columns([1.25, 0.95], gap="large")
+form_column, sample_column = st.columns([1.2, 0.8], gap="large")
 
 # ---------- LEFT: FORM ----------
 with form_column:
@@ -387,6 +410,7 @@ with sample_column:
         st.subheader("📄 Professional CV Design")
         st.caption("Our premium designed format — perfect for job applications.")
 
+        # Image ko thoda chhota aur center kiya gaya hai
         st.image(SAMPLE_CV_URL, use_container_width=True)
 
         st.markdown("---")
@@ -414,31 +438,37 @@ with sample_column:
         st.caption("Click to chat directly on WhatsApp")
 
 # =========================================================
-# HOW IT WORKS
+# HOW IT WORKS (FIXED VISIBILITY)
 # =========================================================
 
 st.write("")
-st.markdown("<h3 style='text-align:center; margin-bottom:20px;'>How It Works</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align:center; margin-bottom:20px; color:#1e293b;'>How It Works</h3>", unsafe_allow_html=True)
 
 i1, i2, i3 = st.columns(3)
 
 with i1:
-    with st.container(border=True):
-        st.markdown("### 1️⃣")
-        st.markdown("**Enter Your Information**")
-        st.caption("Add your education, experience and skills.")
+    st.markdown("""
+    <div class="how-it-works-card">
+        <h4>1️⃣ Enter Your Information</h4>
+        <p>Add your education, experience and skills.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 with i2:
-    with st.container(border=True):
-        st.markdown("### 2️⃣")
-        st.markdown("**AI Creates Your CV**")
-        st.caption("Your information becomes professional text — free.")
+    st.markdown("""
+    <div class="how-it-works-card">
+        <h4>2️⃣ AI Creates Your CV</h4>
+        <p>Your information becomes professional text — free.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 with i3:
-    with st.container(border=True):
-        st.markdown("### 3️⃣")
-        st.markdown("**Want a Designed PDF?**")
-        st.caption("Order our premium design on WhatsApp.")
+    st.markdown("""
+    <div class="how-it-works-card">
+        <h4>3️⃣ Want a Designed PDF?</h4>
+        <p>Order our premium design on WhatsApp.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # =========================================================
 # FOOTER
