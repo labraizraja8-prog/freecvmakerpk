@@ -7,7 +7,7 @@ import streamlit as st
 # =========================================================
 
 st.set_page_config(
-    page_title="Free CV Maker Pakistan - ATS Resume Builder",
+    page_title="Free AI CV Maker Pakistan - ATS Resume Builder",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -260,8 +260,8 @@ label {
 st.markdown(f"""
 <div class='top-banner'>
     <img src="{LOGO_URL}" width="100">
-    <h1>Free CV Maker Pakistan</h1>
-    <p>✨ Create a professional, ATS-friendly CV with AI — quickly, simply and for free.</p>
+    <h1>Free AI CV Maker Pakistan</h1>
+    <p>✨ Create a professional, ATS-friendly Resume with AI — quickly, simply and for free.</p>
 </div>
 """, unsafe_allow_html=True)
 
