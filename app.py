@@ -1,6 +1,7 @@
 import re
 from groq import Groq
 import streamlit as st
+import streamlit.components.v1 as components
 
 # =========================================================
 # PAGE CONFIG
@@ -20,6 +21,77 @@ st.set_page_config(
 LOGO_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmakerpk/main/logo.jpg"
 SAMPLE_CV_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmakerpk/main/cv.jpeg"
 WHATSAPP_URL = "https://wa.me/923109018979"
+
+# =========================================================
+# ADSTERRA AD CODES (Aap ke ad units ke mutabiq)
+# =========================================================
+
+# 728x90 Banner
+AD_728x90 = """
+<script>
+  atOptions = {
+    'key' : '39c52b8e4f878194634c7f5180494659',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highrevenueformat.com/39c52b8e4f878194634c7f5180494659/invoke.js"></script>
+"""
+
+# 300x250 Banner
+AD_300x250 = """
+<script>
+  atOptions = {
+    'key' : 'd01929cee1521e814eb525fd5373e9a4',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highrevenueformat.com/d01929cee1521e814eb525fd5373e9a4/invoke.js"></script>
+"""
+
+# 160x600 Banner
+AD_160x600 = """
+<script>
+  atOptions = {
+    'key' : 'db924fe6df8e90738c11ce8b8433ebfd',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highrevenueformat.com/db924fe6df8e90738c11ce8b8433ebfd/invoke.js"></script>
+"""
+
+# 320x50 Banner
+AD_320x50 = """
+<script>
+  atOptions = {
+    'key' : 'a33a4e191058fe48de9619a113ad9507',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highrevenueformat.com/a33a4e191058fe48de9619a113ad9507/invoke.js"></script>
+"""
+
+# Native Banner
+AD_NATIVE = """
+<script async="async" data-cfasync="false" src="https://pl31550229.profitableratecpmnetwork.com/67434af7d43e6dce4442b743cdcbcc77/invoke.js"></script>
+<div id="container-67434af7d43e6dce4442b743cdcbcc77"></div>
+"""
+
+# Social Bar
+AD_SOCIAL_BAR = """
+<script src="https://pl31550228.profitableratecpmnetwork.com/19/25/56/19255660631a617bbfeaf81328ae8d9b.js"></script>
+"""
 
 # =========================================================
 # BOLD NEW CSS (FIXED VISIBILITY)
@@ -223,6 +295,11 @@ st.markdown("""
     ✅ 100% Free AI &nbsp;•&nbsp; 🎯 ATS-Optimized &nbsp;•&nbsp; ⚡ Instant Result &nbsp;•&nbsp; 🇵🇰 Made in Pakistan
 </div>
 """, unsafe_allow_html=True)
+
+# ---------- TOP AD (728x90) ----------
+st.write("")
+components.html(AD_728x90, height=90, scrolling=False)
+st.write("")
 
 # =========================================================
 # TRUST FEATURES
@@ -437,6 +514,12 @@ with sample_column:
         st.link_button("💬 Order on WhatsApp", WHATSAPP_URL, use_container_width=True)
         st.caption("Click to chat directly on WhatsApp")
 
+        # ---------- SIDEBAR ADS (Right Column) ----------
+        st.markdown("---")
+        components.html(AD_300x250, height=250, scrolling=False)
+        st.markdown("---")
+        components.html(AD_NATIVE, height=250, scrolling=False)
+
 # =========================================================
 # HOW IT WORKS (FIXED VISIBILITY)
 # =========================================================
@@ -471,6 +554,19 @@ with i3:
     """, unsafe_allow_html=True)
 
 # =========================================================
+# BOTTOM ADS
+# =========================================================
+
+st.write("")
+st.markdown("---")
+# 728x90 Bottom (Optional, can be used here too)
+# components.html(AD_728x90, height=90, scrolling=False)
+# st.markdown("---")
+
+# 320x50 Mobile Banner
+components.html(AD_320x50, height=50, scrolling=False)
+
+# =========================================================
 # FOOTER
 # =========================================================
 
@@ -484,3 +580,6 @@ AI-Powered Professional CV Generation<br>
 © 2026 Free CV Maker Pakistan. All rights reserved.
 </p>
 """, unsafe_allow_html=True)
+
+# ---------- SOCIAL BAR AD (Sab se aakhir mein) ----------
+components.html(AD_SOCIAL_BAR, height=0, scrolling=False)
