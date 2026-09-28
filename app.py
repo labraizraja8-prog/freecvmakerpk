@@ -1,14 +1,13 @@
 import re
 from groq import Groq
 import streamlit as st
-import streamlit.components.v1 as components
 
 # =========================================================
 # PAGE CONFIG
 # =========================================================
 
 st.set_page_config(
-    page_title="Free CV Maker Pakistan",
+    page_title="Free CV Maker Pakistan - ATS Resume Builder",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -23,7 +22,7 @@ SAMPLE_CV_URL = "https://raw.githubusercontent.com/labraizraja8-prog/freecvmaker
 WHATSAPP_URL = "https://wa.me/923109018979"
 
 # =========================================================
-# ADSTERRA AD CODES (Aap ke ad units ke mutabiq)
+# ADSTERRA AD CODES
 # =========================================================
 
 # 728x90 Banner
@@ -54,18 +53,10 @@ AD_300x250 = """
 <script src="https://www.highrevenueformat.com/d01929cee1521e814eb525fd5373e9a4/invoke.js"></script>
 """
 
-# 160x600 Banner
-AD_160x600 = """
-<script>
-  atOptions = {
-    'key' : 'db924fe6df8e90738c11ce8b8433ebfd',
-    'format' : 'iframe',
-    'height' : 600,
-    'width' : 160,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highrevenueformat.com/db924fe6df8e90738c11ce8b8433ebfd/invoke.js"></script>
+# Native Banner
+AD_NATIVE = """
+<script async="async" data-cfasync="false" src="https://pl31550229.profitableratecpmnetwork.com/67434af7d43e6dce4442b743cdcbcc77/invoke.js"></script>
+<div id="container-67434af7d43e6dce4442b743cdcbcc77"></div>
 """
 
 # 320x50 Banner
@@ -82,12 +73,6 @@ AD_320x50 = """
 <script src="https://www.highrevenueformat.com/a33a4e191058fe48de9619a113ad9507/invoke.js"></script>
 """
 
-# Native Banner
-AD_NATIVE = """
-<script async="async" data-cfasync="false" src="https://pl31550229.profitableratecpmnetwork.com/67434af7d43e6dce4442b743cdcbcc77/invoke.js"></script>
-<div id="container-67434af7d43e6dce4442b743cdcbcc77"></div>
-"""
-
 # Social Bar
 AD_SOCIAL_BAR = """
 <script src="https://pl31550228.profitableratecpmnetwork.com/19/25/56/19255660631a617bbfeaf81328ae8d9b.js"></script>
@@ -101,10 +86,9 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* Force global font and text color */
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
-    color: #1e293b !important; /* Dark text for readability */
+    color: #1e293b !important;
 }
 
 .stApp {
@@ -119,7 +103,6 @@ html, body, [class*="css"] {
 
 #MainMenu, footer { visibility: hidden; }
 
-/* ============ TOP HEADER BANNER ============ */
 .top-banner {
     background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     padding: 40px 30px;
@@ -146,7 +129,6 @@ html, body, [class*="css"] {
     border: 3px solid rgba(255,255,255,0.3);
 }
 
-/* ============ TRUST STRIP ============ */
 .trust-strip {
     background: white;
     padding: 15px;
@@ -160,7 +142,6 @@ html, body, [class*="css"] {
     border: 1px solid #e2e8f0;
 }
 
-/* ============ CARDS ============ */
 div[data-testid="stVerticalBlockBorderWrapper"] {
     background: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
@@ -173,7 +154,6 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* ============ INPUTS (FIXED VISIBILITY) ============ */
 div[data-baseweb="input"] > div,
 div[data-baseweb="textarea"] > div {
     background-color: #ffffff !important;
@@ -188,7 +168,7 @@ div[data-baseweb="textarea"] > div:focus-within {
 }
 div[data-baseweb="input"] input,
 div[data-baseweb="textarea"] textarea {
-    color: #0f172a !important; /* DARK TEXT FOR INPUTS */
+    color: #0f172a !important;
     font-weight: 500 !important;
 }
 label {
@@ -196,7 +176,6 @@ label {
     font-weight: 600 !important;
 }
 
-/* ============ GENERATE BUTTON (BOLD) ============ */
 .stFormSubmitButton > button {
     width: 100% !important;
     min-height: 60px !important;
@@ -216,7 +195,6 @@ label {
     box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45) !important;
 }
 
-/* ============ WHATSAPP BUTTON (BOLD) ============ */
 .stLinkButton > a {
     width: 100% !important;
     min-height: 60px !important;
@@ -240,7 +218,6 @@ label {
     color: white !important;
 }
 
-/* ============ DOWNLOAD BUTTON ============ */
 .stDownloadButton > button {
     width: 100% !important;
     min-height: 50px !important;
@@ -255,7 +232,6 @@ label {
     color: white !important;
 }
 
-/* ============ HOW IT WORKS CARDS ============ */
 .how-it-works-card {
     background: white !important;
     border: 1px solid #e2e8f0 !important;
@@ -289,7 +265,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Trust Strip
 st.markdown("""
 <div class='trust-strip'>
     ✅ 100% Free AI &nbsp;•&nbsp; 🎯 ATS-Optimized &nbsp;•&nbsp; ⚡ Instant Result &nbsp;•&nbsp; 🇵🇰 Made in Pakistan
@@ -298,7 +273,7 @@ st.markdown("""
 
 # ---------- TOP AD (728x90) ----------
 st.write("")
-components.html(AD_728x90, height=90, scrolling=False)
+st.html(AD_728x90)
 st.write("")
 
 # =========================================================
@@ -487,14 +462,12 @@ with sample_column:
         st.subheader("📄 Professional CV Design")
         st.caption("Our premium designed format — perfect for job applications.")
 
-        # Image ko thoda chhota aur center kiya gaya hai
         st.image(SAMPLE_CV_URL, use_container_width=True)
 
         st.markdown("---")
         st.markdown("### 💼 Want Your CV Like This?")
         st.write("Get your CV professionally designed as a polished PDF — ready to send.")
 
-        # BIG PRICE BOX
         st.markdown("""
         <div style="
             background: linear-gradient(135deg, #fef3c7, #fde68a);
@@ -516,12 +489,12 @@ with sample_column:
 
         # ---------- SIDEBAR ADS (Right Column) ----------
         st.markdown("---")
-        components.html(AD_300x250, height=250, scrolling=False)
+        st.html(AD_300x250)
         st.markdown("---")
-        components.html(AD_NATIVE, height=250, scrolling=False)
+        st.html(AD_NATIVE)
 
 # =========================================================
-# HOW IT WORKS (FIXED VISIBILITY)
+# HOW IT WORKS
 # =========================================================
 
 st.write("")
@@ -559,12 +532,7 @@ with i3:
 
 st.write("")
 st.markdown("---")
-# 728x90 Bottom (Optional, can be used here too)
-# components.html(AD_728x90, height=90, scrolling=False)
-# st.markdown("---")
-
-# 320x50 Mobile Banner
-components.html(AD_320x50, height=50, scrolling=False)
+st.html(AD_320x50)
 
 # =========================================================
 # FOOTER
@@ -581,5 +549,5 @@ AI-Powered Professional CV Generation<br>
 </p>
 """, unsafe_allow_html=True)
 
-# ---------- SOCIAL BAR AD (Sab se aakhir mein) ----------
-components.html(AD_SOCIAL_BAR, height=0, scrolling=False)
+# ---------- SOCIAL BAR AD ----------
+st.html(AD_SOCIAL_BAR)
