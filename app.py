@@ -550,4 +550,4 @@ AI-Powered Professional CV Generation<br>
 """, unsafe_allow_html=True)
 
 # ---------- SOCIAL BAR AD ----------
-st.iframe(AD_SOCIAL_BAR, height=0)
+st.iframe(AD_SOCIAL_BAR, height=50)
