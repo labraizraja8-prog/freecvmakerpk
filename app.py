@@ -79,7 +79,7 @@ AD_SOCIAL_BAR = """
 """
 
 # =========================================================
-# BOLD NEW CSS (FIXED VISIBILITY)
+# BOLD NEW CSS
 # =========================================================
 
 st.markdown("""
@@ -273,7 +273,7 @@ st.markdown("""
 
 # ---------- TOP AD (728x90) ----------
 st.write("")
-st.html(AD_728x90)
+st.iframe(AD_728x90, height=90)
 st.write("")
 
 # =========================================================
@@ -446,7 +446,7 @@ if "generated_cv" in st.session_state:
             data=generated_cv,
             file_name=f"{safe_name}_CV.txt",
             mime="text/plain",
-            use_container_width=True,
+            width="stretch",
         )
         st.info("💡 Want a designed PDF version? Click the WhatsApp button →")
 
@@ -462,7 +462,7 @@ with sample_column:
         st.subheader("📄 Professional CV Design")
         st.caption("Our premium designed format — perfect for job applications.")
 
-        st.image(SAMPLE_CV_URL, use_container_width=True)
+        st.image(SAMPLE_CV_URL, width="stretch")
 
         st.markdown("---")
         st.markdown("### 💼 Want Your CV Like This?")
@@ -484,14 +484,14 @@ with sample_column:
         </div>
         """, unsafe_allow_html=True)
 
-        st.link_button("💬 Order on WhatsApp", WHATSAPP_URL, use_container_width=True)
+        st.link_button("💬 Order on WhatsApp", WHATSAPP_URL, width="stretch")
         st.caption("Click to chat directly on WhatsApp")
 
         # ---------- SIDEBAR ADS (Right Column) ----------
         st.markdown("---")
-        st.html(AD_300x250)
+        st.iframe(AD_300x250, height=250)
         st.markdown("---")
-        st.html(AD_NATIVE)
+        st.iframe(AD_NATIVE, height=250)
 
 # =========================================================
 # HOW IT WORKS
@@ -532,7 +532,7 @@ with i3:
 
 st.write("")
 st.markdown("---")
-st.html(AD_320x50)
+st.iframe(AD_320x50, height=50)
 
 # =========================================================
 # FOOTER
@@ -550,4 +550,4 @@ AI-Powered Professional CV Generation<br>
 """, unsafe_allow_html=True)
 
 # ---------- SOCIAL BAR AD ----------
-st.html(AD_SOCIAL_BAR)
+st.iframe(AD_SOCIAL_BAR, height=0)
